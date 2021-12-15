@@ -1,0 +1,37 @@
+.text
+.globl main
+main:
+jal readVector # Caller
+j end
+
+readVector:
+# Set default values
+li a2, 0x10000000 # Base address for vector
+lw t2, 0(a2) # Load word on base address
+mv a0, t2 # Default minimum value
+mv a1, t2 # Default maximum value
+
+# Setup for loop
+li t0, 0 # Incrementing integer
+li t1, 100 # Number of increments
+
+# For loop
+floop:
+bge t0, t1, exit # Test loop exit
+lw t2, 0(a2) # Load word on current address
+bge t2, a0 notmin # Compare minimum
+mv a0, t2 # Set new minimum
+j notmax # Skip maximum comparison
+notmin:
+bge a1, t2 notmax # Compare maximum
+mv a1, t2 # Set new maximum
+notmax:
+addi a2, a2, 4 # Next address
+addi t0, t0, 1 # Increment loop
+j floop # Restart loop
+
+exit:
+jalr zero, 0(x1) # Return to caller
+
+end:
+nop

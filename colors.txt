@@ -1,0 +1,10 @@
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{INSTRUCTIONS_COLOR}{RGB}{200,0,0}
+\definecolor{REGISTERS_COLOR}{RGB}{40,40,255}
+\definecolor{KEYWORDS_COLOR}{RGB}{204,0,153}
+\definecolor{COMMENTS_COLOR}{RGB}{153,153,153}
+\definecolor{DECIMALS_COLOR}{RGB}{0,153,0}
+\definecolor{HEXADECIMALS_COLOR}{RGB}{0,153,0}
+\definecolor{BINARIES_COLOR}{RGB}{0,153,0}
+\definecolor{WORDS_COLOR}{RGB}{77,0,77}
